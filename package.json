@@ -1,0 +1,13 @@
+{
+  "name": "alshaheed-print-store",
+  "version": "1.0.0",
+  "description": "مطبعة الشهيد — online store: signs, printing, marketing and wholesale. Zero dependencies, Node 22+",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --no-warnings server.mjs",
+    "dev": "node --no-warnings --watch server.mjs",
+    "seed:reset": "node --no-warnings scripts/seed.mjs --reset"
+  }
+}
