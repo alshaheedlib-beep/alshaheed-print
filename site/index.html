@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14284b">
+<meta name="description" content="مطبعة الشهيد – الخليل: كاسات، أكياس، علب، ليبلات، ملابس موحدة وكروت أعراس مطبوعة بشعارك، وتوصيل لكل المناطق.">
+<link rel="icon" type="image/png" href="logo.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>مطبعة الشهيد</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Readex+Pro:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: RTL storefront — navy masthead with print crop marks, category rail, product grid; mobile bottom tab bar */
+:root{
+  --navy:#14284b; --navy-2:#1d3866; --ink:#16213a; --paper:#f6f7fa; --card:#ffffff;
+  --line:#dde2ec; --muted:#5d6782; --accent:#e8b21a; --accent-ink:#2a1f00;
+  --on-navy:#ffffff; --soft:#e9eef7; --ok:#1f8a55; --tile:#edf1f8;
+  --display:"Reem Kufi","Readex Pro",Tahoma,sans-serif;
+  --body:"Readex Pro","Segoe UI",Tahoma,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --navy:#0e1d38; --navy-2:#1a3160; --ink:#e6eaf3; --paper:#0b1426; --card:#13203a;
+  --line:#253556; --muted:#9aa6c2; --accent:#f0c040; --accent-ink:#241a00;
+  --on-navy:#ffffff; --soft:#1a2a4a; --ok:#4cc38a; --tile:#dfe6f2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#0e1d38; --navy-2:#1a3160; --ink:#e6eaf3; --paper:#0b1426; --card:#13203a;
+  --line:#253556; --muted:#9aa6c2; --accent:#f0c040; --accent-ink:#241a00;
+  --on-navy:#ffffff; --soft:#1a2a4a; --ok:#4cc38a; --tile:#dfe6f2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:var(--on-navy)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:.2px}
+.brand small{display:block;font-size:11px;opacity:.75;margin-top:-4px}
+.nav{display:flex;gap:4px;margin-inline-start:auto}
+.nav a{text-decoration:none;padding:6px 12px;border-radius:6px;font-size:14px;opacity:.85}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--navy-2);opacity:1}
+.search{flex:0 1 260px;position:relative}
+.search input{width:100%;border:1px solid transparent;background:var(--navy-2);color:var(--on-navy);border-radius:8px;padding:8px 12px}
+.search input::placeholder{color:#c5cee2}
+.cartbtn{position:relative;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.badge{position:absolute;top:-6px;left:-6px;background:var(--on-navy);color:var(--navy);border-radius:10px;font-size:11px;min-width:20px;text-align:center;padding:0 5px;font-weight:700}
+.demo{background:var(--accent);color:var(--accent-ink);font-size:12.5px;text-align:center;padding:5px 16px}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding-block:40px 48px}
+.hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:700}
+.hero p{opacity:.85;max-width:52ch;margin:12px 0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:8px;padding:11px 20px;font-weight:600;cursor:pointer;text-decoration:none}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;color:inherit;border:1px solid currentColor}
+.btn-navy{background:var(--navy);color:var(--on-navy)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.sheet{position:relative;aspect-ratio:4/3;max-width:100%;border:1px dashed rgba(255,255,255,.35);border-radius:4px;display:grid;place-items:center}
+.sheet::before,.sheet::after{content:"";position:absolute;width:22px;height:22px;border-color:var(--accent);border-style:solid}
+.sheet::before{top:-11px;right:-11px;border-width:0 0 2px 2px}
+.sheet::after{bottom:-11px;left:-11px;border-width:2px 2px 0 0}
+.cmyk{position:absolute;bottom:12px;right:12px;display:flex;gap:4px}
+.cmyk i{width:14px;height:14px;border-radius:50%;display:block}
+.reg{position:absolute;top:12px;left:12px;width:26px;height:26px;color:var(--on-navy);opacity:.6}
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:78%}
+.stack div{aspect-ratio:1;border-radius:10px;background:var(--navy-2);display:grid;place-items:center;color:var(--accent)}
+.stack svg{width:62%;height:62%}
+
+/* sections */
+section{padding-block:32px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+.sec-head h2{font-size:24px}
+.sec-head a{color:var(--muted);font-size:14px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+.cat{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;padding:8px 4px;text-align:center;font-size:14.5px;font-weight:500}
+.cat:hover .ic{box-shadow:inset 0 0 0 2px var(--navy-2)}
+@media (prefers-reduced-motion:no-preference){.cat .ic{transition:transform .2s}.cat:hover .ic{transform:scale(1.04)}}
+.cat .ic{width:112px;height:112px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px #e3e7ee;display:grid;place-items:center;color:var(--navy-2)}
+.cat .ic .icon-img{width:84%;height:84%}
+.icon-img{display:block;object-fit:contain}
+.use .ic{width:48px;height:48px;border-radius:50%;background:var(--tile);display:grid;place-items:center;margin-bottom:10px}
+.use .ic .icon-img{width:32px;height:32px}
+.cat small{color:var(--muted);font-size:12px}
+
+.uses{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.use{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none}
+.use h3{font-size:17px;margin-bottom:4px}
+.use p{margin:0;color:var(--muted);font-size:13.5px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.pc .img{aspect-ratio:1;background:#fff;display:grid;place-items:center;color:var(--navy-2);text-decoration:none;position:relative}
+.pc .img .icon-img{width:78%;height:78%}
+.tag{position:absolute;top:10px;right:10px;background:var(--card);border:1px solid var(--line);color:var(--muted);font-size:11.5px;padding:1px 8px;border-radius:20px}
+.pc .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc h3{font-family:var(--body);font-size:15px;font-weight:500;line-height:1.45}
+.pc h3 a{text-decoration:none}
+.pc .meta{color:var(--muted);font-size:12.5px}
+.price{font-weight:600;color:var(--navy-2)}
+:root[data-theme="dark"] .price{color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price{color:var(--accent)}}
+.pc .price{margin-top:auto}
+.pc .btn{justify-content:center;padding:9px 12px;font-size:14px}
+.sw{display:flex;gap:4px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid var(--line);display:block}
+
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why div{border-top:3px solid var(--accent);padding-top:12px}
+.why h3{font-size:17px;margin-bottom:4px}
+.why p{margin:0;color:var(--muted);font-size:13.5px}
+
+/* listing */
+.layout{display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:start}
+.filters{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:16px;position:sticky;top:80px}
+.filters h4{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:500}
+.filters label{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.filters select,.filters input[type=range]{width:100%}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:10px}
+.crumbs a{color:var(--muted)}
+.count{color:var(--muted);font-size:13px}
+.subcats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:4px 14px;font-size:13.5px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:32px;text-align:center;color:var(--muted)}
+
+/* product */
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.pd .gallery{background:#fff;border:1px solid var(--line);border-radius:14px;aspect-ratio:1;display:grid;place-items:center;color:var(--navy-2);max-width:100%}
+.pd .gallery .icon-img{width:80%;height:80%}
+.pd h1{font-size:28px;margin:4px 0 8px}
+.pd .big{font-size:24px}
+.desc{color:var(--muted);margin:10px 0 16px;padding:0;list-style:none;display:grid;gap:4px;font-size:14px}
+.desc li::before{content:"•";color:var(--accent);margin-inline-end:8px}
+.opt{margin-bottom:16px}
+.opt h4{margin:0 0 8px;font-size:14px;font-weight:500}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opts button{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 14px;cursor:pointer;font-size:14px}
+.opts button[aria-pressed="true"]{border-color:var(--navy-2);box-shadow:inset 0 0 0 1px var(--navy-2);font-weight:600}
+.colorbtn{display:inline-flex;align-items:center;gap:6px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}
+.qty button{border:0;background:transparent;width:38px;height:40px;cursor:pointer;font-size:18px}
+.qty input{width:80px;text-align:center;border:0;background:transparent;height:40px}
+.total{background:var(--soft);border-radius:10px;padding:12px 14px;margin:14px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tiers{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+.tiers td,.tiers th{border-bottom:1px solid var(--line);padding:6px 4px;text-align:right}
+.tiers th{color:var(--muted);font-weight:500}
+.tiers tr.on td{color:var(--ok);font-weight:600}
+.upload{border:1px dashed var(--line);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.upload img{width:56px;height:56px;object-fit:contain;background:var(--soft);border-radius:6px}
+textarea,input[type=text],input[type=tel],select.f{width:100%;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:9px 12px}
+.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:10px 18px;border-radius:8px;z-index:40;font-size:14px}
+
+/* cart */
+.cart{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:10px}
+.line .th{width:64px;height:64px;border-radius:8px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--navy-2)}
+.line .th .icon-img{width:88%;height:88%}
+.line .x{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;text-decoration:underline}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px}
+.box label{display:grid;gap:4px;font-size:13.5px}
+.sum{display:flex;justify-content:space-between}
+.sum.t{font-weight:700;font-size:17px;border-top:1px solid var(--line);padding-top:10px}
+.done{background:var(--soft);border-radius:10px;padding:14px;display:grid;gap:10px}
+.done pre{white-space:pre-wrap;font-family:var(--body);font-size:13px;margin:0;background:var(--card);border-radius:8px;padding:10px;max-height:220px;overflow:auto}
+
+/* about/contact */
+.prose{max-width:68ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.steps div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--on-navy);font-weight:700;margin-bottom:8px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.info{display:grid;gap:10px}
+.info div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.info small{color:var(--muted);display:block;font-size:12px}
+.info b{font-size:17px;user-select:all}
+
+footer{background:var(--navy);color:var(--on-navy);margin-top:40px}
+footer .wrap{padding-block:28px calc(90px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;font-size:14px}
+footer p{opacity:.8;margin:6px 0}
+footer a{display:block;opacity:.8;text-decoration:none;margin:4px 0}
+
+/* mobile tab bar */
+.tabbar{display:none}
+@media (max-width:860px){
+  .nav,.search{display:none}
+  .hero .wrap,.pd,.cart,.contact,.layout{grid-template-columns:1fr}
+  .hero .sheet{display:none}
+  .uses,.why{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .filters{position:static}
+  footer .wrap{grid-template-columns:1fr}
+  .tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .tabbar a{flex:1;text-align:center;text-decoration:none;font-size:12px;color:var(--muted);display:grid;justify-items:center;gap:2px;position:relative}
+  .tabbar a[aria-current="page"]{color:var(--navy-2);font-weight:600}
+  .tabbar svg{width:22px;height:22px}
+  .msearch{display:block!important;margin-bottom:12px}
+}
+@media (max-width:420px){.grid{grid-template-columns:1fr 1fr;gap:10px}.pc h3{font-size:13.5px}.pc .bd{padding:10px}}
+.msearch{display:none}
+@media (prefers-reduced-motion:no-preference){.pc{transition:transform .15s}.pc:hover{transform:translateY(-2px)}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="3" width="28" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="17" r="6" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M17 6v22M6 17h22" stroke="var(--accent)" stroke-width="1.5"/></svg>
+      <span><b>مطبعة الشهيد</b><small>الخليل · دائرة السير</small></span>
+    </a>
+    <nav class="nav" aria-label="القائمة">
+      <a href="#home" data-r="home">الرئيسية</a>
+      <a href="#products" data-r="products">المنتجات</a>
+      <a href="#about" data-r="about">من نحن</a>
+      <a href="#contact" data-r="contact">اتصل بنا</a>
+    </nav>
+    <div class="search"><input id="q" type="search" placeholder="ابحث: كاسات، أكياس، كروت…" aria-label="بحث"></div>
+    <a class="cartbtn" href="#cart">السلة <span class="badge num" id="badge">0</span></a>
+  </div>
+</header>
+<div class="demo">نسخة تجريبية للعرض — الأسعار والصور مؤقتة لحين اعتماد أسعار المطبعة</div>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div><b style="font-family:var(--display);font-size:20px">مطبعة الشهيد</b><p>كل مطبوعات مشروعك بشعارك، من مكان واحد في الخليل، وتوصيل لكل المناطق.</p></div>
+    <div><a href="#products">كل المنتجات</a><a href="#about">من نحن</a><a href="#contact">اتصل بنا</a><a href="#terms">الشروط والأحكام</a></div>
+    <div><p class="num" dir="ltr" style="text-align:right">00972597323130</p><p dir="ltr" style="text-align:right">alshaheedlib@gmail.com</p><p>الخليل – دائرة السير</p></div>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="تنقل">
+  <a href="#home" data-r="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a>
+  <a href="#products" data-r="products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>المنتجات</a>
+  <a href="#cart" data-r="cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.5 11h11L21 7H6.5"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>السلة</a>
+  <a href="#contact" data-r="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4z"/></svg>تواصل</a>
+</nav>
+
+<script>
+const WA = "972597323130";
+const I = {
+ cups:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h24l2.5 5h-29z"/><rect x="15" y="12" width="34" height="6" rx="2"/> <path d="M18 18l4 39h20l4-39"/><path d="M19.5 28h25M20.8 43h22.4"/><circle cx="32" cy="35.5" r="5"/><circle cx="32" cy="35.5" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ bags:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 22h38l-3 35H16z"/><path d="M24 22v-5a8 8 0 0 1 16 0v5"/> <circle cx="24" cy="27" r="1.3" fill="currentColor" stroke="none"/><circle cx="40" cy="27" r="1.3" fill="currentColor" stroke="none"/><circle cx="32" cy="41" r="6"/><circle cx="32" cy="41" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ boxes:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 33c0-15 46-15 46 0z"/><path d="M7 37h50l-4 15H11z"/><path d="M7 33h50v4H7z"/> <path d="M22 45h20"/><circle cx="32" cy="27.5" r="4.5"/><circle cx="32" cy="27.5" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ wedding:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 24V9h34v15"/><path d="M22 15h20"/><rect x="8" y="24" width="48" height="32" rx="2.5"/> <path d="M8 26l24 18 24-18"/><circle cx="32" cy="44" r="6.5"/> <path d="M32 47.2l-2.8-2.7a1.7 1.7 0 0 1 2.8-2.2 1.7 1.7 0 0 1 2.8 2.2z" stroke-width="1.6"/></svg>',
+ labels:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 33L29 13h21v20L30 53a3 3 0 0 1-4.2 0L9 37.2a3 3 0 0 1 0-4.2z"/> <circle cx="42.5" cy="20.5" r="3"/><path d="M44 17.8c2-6 8-9 13-7.8"/><circle cx="29" cy="33" r="5"/><circle cx="29" cy="33" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ paper:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 11V6h20l9 9v35h-5"/><path d="M15 11h24l9 9v37H15z"/><path d="M39 11v9h9"/> <circle cx="24" cy="23" r="4.5"/><circle cx="24" cy="23" r="1.2" fill="currentColor" stroke="none"/><path d="M21 34h21M21 40h21M21 46h13"/></svg>',
+ uniforms:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 9L12 15 7 28l9 3v25h32V31l9-3-5-13-12-6c-1.5 4.5-4.5 7-8 7s-6.5-2.5-8-7z"/> <path d="M24 9l4 10 4-3 4 3 4-10"/><path d="M32 16v10"/> <circle cx="32" cy="21" r="1" fill="currentColor" stroke="none"/><circle cx="32" cy="25" r="1" fill="currentColor" stroke="none"/><circle cx="41" cy="37" r="4.5"/><circle cx="41" cy="37" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ promo:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21h29v26a7 7 0 0 1-7 7H18a7 7 0 0 1-7-7z"/><path d="M40 27h4.5a6.5 6.5 0 0 1 0 13H40"/> <path d="M20 15c-2.5-3 2.5-5 0-8.5M29 15c-2.5-3 2.5-5 0-8.5"/><circle cx="25.5" cy="36.5" r="6"/><circle cx="25.5" cy="36.5" r="1.2" fill="currentColor" stroke="none"/></svg>',
+ stands:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7h26v39H19z"/><path d="M13 56l6-10h26l6 10z"/><circle cx="32" cy="19" r="5"/><circle cx="32" cy="19" r="1.2" fill="currentColor" stroke="none"/> <path d="M25 30h14M25 36h14"/></svg>',
+ rest:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="8.5"/> <path d="M8 9v11a4 4 0 0 0 8 0V9M12 9v46"/><path d="M53 9c-5 4-5.5 15-1 20v26"/></svg>',
+ off:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="20" width="50" height="33" rx="4"/><path d="M24 20v-5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v5"/> <path d="M7 34h50"/><rect x="28" y="30" width="8" height="8" rx="1.5"/></svg>',
+ clin:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9h5M35 9h5"/><path d="M18 9v15a10 10 0 0 0 20 0V9"/> <path d="M28 34v8a9 9 0 0 0 18 0v-6"/><circle cx="46" cy="31" r="5"/></svg>',
+ evt:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="39" r="12"/><circle cx="40" cy="39" r="12"/><path d="M36 21l4-5 4 5-4 5.5z"/> <path d="M14 14v5M11.5 16.5h5M52 11v4M50 13h4"/></svg>'
+};
+const reg='<svg class="reg" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13" cy="13" r="7"/><path d="M13 0v26M0 13h26"/></svg>';
+
+const CATS=[
+ {id:"cups",n:"كاسات",icon:"mockups/cups.png",subs:["كرتون","بلاستيك","أغطية"]},
+ {id:"bags",n:"أكياس",icon:"mockups/bags.png",subs:["ورق","قماش","نايلون","كرتون"]},
+ {id:"boxes",n:"علب وتغليف أطعمة",icon:"mockups/boxes.png",subs:["بيتزا","وجبات","حلويات"]},
+ {id:"wedding",n:"كروت أعراس",icon:"mockups/wedding.png",subs:[]},
+ {id:"labels",n:"ليبلات وستكرات",icon:"mockups/labels.png",subs:["ورقي","بلاستيكي"]},
+ {id:"paper",n:"مطبوعات ورقية",icon:"mockups/paper.png",subs:["فلايرات","دفاتر","مغلفات"]},
+ {id:"uniforms",n:"آلبسة موحدة",icon:"mockups/uniforms.png",subs:["مراييل","بلايز","طواقي","قمصان"]},
+ {id:"promo",n:"هدايا دعائية",icon:"mockups/promo.png",subs:[]},
+ {id:"stands",n:"ستاندات عرض",icon:"mockups/stands.png",subs:[]}
+];
+const USES={rest:"مطاعم وكافيهات",off:"شركات ومكاتب",clin:"عيادات",evt:"مناسبات"};
+const USE_ICON=k=>"icons/"+k+".png";
+const ico=(src,alt="")=>`<img class="icon-img" src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
+const COL={"أسود":"#1b1b1b","أبيض":"#ffffff","كحلي":"#1c2f5a","خمري":"#6e1f2e","بيج":"#d8c7a6","رمادي":"#8a8f99","أخضر":"#2e5b3a"};
+let N=0;
+const P=(cat,sub,n,unit,opts,extra={})=>({id:"p"+(++N),cat,sub,n,unit,opts,...extra});
+const PRODUCTS=[
+ P("cups","كرتون","كاسات كرتون طباعة ملونة","كرتونة 1000 كاسة",[["4 Oz",95],["8 Oz",110],["12 Oz",130]],{uses:["rest"],min:1,days:"10–14 يوم",note:"لا يشمل الأغطية",tiers:[[3,5],[5,8]]}),
+ P("cups","كرتون","كاسات كرتون دبل","كرتونة 1000 كاسة",[["8 Oz",340],["9 Oz",370],["12 Oz",450]],{uses:["rest"],min:1,days:"أسبوعين",note:"طبقتين، تحافظ على حرارة المشروب",tiers:[[3,5],[5,8]]}),
+ P("cups","بلاستيك","كاسات بلاستيك U مطبوعة","كرتونة 1000 كاسة",[["12 Oz",360],["16 Oz",390]],{uses:["rest"],min:1,days:"أسبوعين"}),
+ P("cups","أغطية","أغطية كاسات كرتون","كرتونة 1000 غطاء",[["80 مم",130],["90 مم",140]],{uses:["rest"],min:1}),
+ P("bags","ورق","كيس ورقي طباعة ملونة","للقطعة",[["S 18×24",0.95],["M 25×32",1.2],["L 30×40",1.5]],{uses:["rest","off"],min:500,colors:["أبيض","بيج"],tiers:[[1000,5],[3000,10]]}),
+ P("bags","قماش","كيس قماش يد خارجية","للقطعة",[["30×25",1.4],["40×30",1.8],["50×60",2.6]],{uses:["off","evt"],min:300,colors:["أبيض","أسود","كحلي","بيج"],tiers:[[1000,6]]}),
+ P("bags","نايلون","كيس نايلون شنطة يد","للقطعة",[["28×50",0.13],["40×50",0.18]],{uses:["off"],min:2000}),
+ P("bags","ورق","كيس دلفري مطبوع","للقطعة",[["وسط",1.3],["كبير",1.6]],{uses:["rest"],min:500,tiers:[[1000,5],[3000,10]]}),
+ P("bags","قماش","شنطة قماش توت باج مطبوعة","للقطعة",[["35×40",15]],{uses:["off","evt"],min:20,colors:["بيج","أسود"]}),
+ P("boxes","بيتزا","علب بيتزا طباعة ديجيتال","للقطعة",[["25 سم",1.4],["30 سم",1.6],["36 سم",1.9]],{uses:["rest"],min:500,tiers:[[1000,5],[3000,10]]}),
+ P("boxes","وجبات","علبة برجر مطبوعة","للقطعة",[["قياسي",0.7]],{uses:["rest"],min:1000}),
+ P("boxes","وجبات","علبة بطاطا","للقطعة",[["صغير",0.6],["كبير",0.75]],{uses:["rest"],min:1000}),
+ P("boxes","وجبات","علب شاورما مطبوعة","للقطعة",[["فردي",1.8],["دبل",2.3]],{uses:["rest"],min:500}),
+ P("boxes","حلويات","علبة حلويات شنطة","للقطعة",[["صغير",0.7],["وسط",0.95],["كبير",1.2]],{uses:["rest","evt"],min:500}),
+ P("boxes","حلويات","ورق زبدة مطبوع","رزمة 1000 ورقة",[["30×30",20]],{uses:["rest"],min:1}),
+ P("wedding","","كرت عرس أبيض بطباعة ذهبية","للقطعة",[["مع مغلف",1.7]],{uses:["evt"],min:100}),
+ P("wedding","","كرت عرس شفاف مع ختم شمع","للقطعة",[["مع مغلف",1.6]],{uses:["evt"],min:100}),
+ P("wedding","","كرت عرس مع مغلف كحلي","للقطعة",[["قياسي",1.7]],{uses:["evt"],min:100}),
+ P("wedding","","كرت عرس بطبقات مع حزام","للقطعة",[["قياسي",2.1]],{uses:["evt"],min:100}),
+ P("labels","ورقي","ستكر ورقي دائري","طبق",[["3.5 سم (100 ستكر)",4],["5 سم (50)",4],["10 سم (12)",4]],{uses:["rest","off"],min:5}),
+ P("labels","بلاستيكي","ستكر بلاستيكي شفاف","طبق",[["3.5 سم (100 ستكر)",7],["7 سم (24)",7]],{uses:["rest","off"],min:5}),
+ P("labels","ورقي","ليبل رول للمنتجات","رول 1000 ليبل",[["دائري 4 سم",120],["مستطيل 5×3",150]],{uses:["off"],min:1}),
+ P("paper","فلايرات","فلاير ملون وجهين A5","للقطعة",[["A5",0.3],["A4",0.55]],{uses:["off","rest"],min:500,tiers:[[1000,8],[5000,15]]}),
+ P("paper","فلايرات","بروشور A4 مطوي","للقطعة",[["3 طيات",0.9]],{uses:["off","clin"],min:500}),
+ P("paper","دفاتر","دفتر مكربن نسختين","للدفتر",[["A6",5],["A5",7],["A4",10]],{uses:["off","rest"],min:10}),
+ P("paper","دفاتر","دفتر روشيتات للعيادة","للدفتر",[["A5",6]],{uses:["clin"],min:20}),
+ P("paper","مغلفات","مغلفات مطبوعة","للقطعة",[["23×11",0.24],["33×23",0.4]],{uses:["off","clin"],min:500}),
+ P("uniforms","مراييل","مريول قطن مع جيب","للقطعة",[["مقاس واحد",30]],{uses:["rest"],min:5,colors:["أسود","كحلي","خمري","بيج"]}),
+ P("uniforms","بلايز","بلوزة بولو قطن","للقطعة",[["S",28],["M",28],["L",28],["XL",28],["XXL",30]],{uses:["off","rest","clin"],min:5,colors:["كحلي","أسود","أبيض","خمري","رمادي"],tiers:[[20,5],[50,10]]}),
+ P("uniforms","طواقي","طاقية مطبوعة","للقطعة",[["مقاس واحد",20]],{uses:["rest","off"],min:10,colors:["كحلي","أسود","بيج","رمادي"]}),
+ P("uniforms","قمصان","قميص شيف","للقطعة",[["S–XXL",60]],{uses:["rest"],min:3,colors:["أبيض","أسود"]}),
+ P("uniforms","قمصان","سكراب طبي بشعار العيادة","للطقم",[["S–XXL",75]],{uses:["clin"],min:3,colors:["كحلي","أخضر","خمري"]}),
+ P("promo","","مج سيراميك مطبوع","للقطعة",[["أبيض",6],["ملون من الداخل",9]],{uses:["off","evt"],min:12}),
+ P("promo","","علاقة ريحة سيارة بشعارك","للقطعة",[["قياسي",0.9]],{uses:["off"],min:200}),
+ P("stands","","ستاند أكريلك طولي مع طباعة","للقطعة",[["A7",8],["A5",15],["A4",23]],{uses:["rest","off","clin"],min:1}),
+ P("stands","","رقم طاولة","للقطعة",[["بلاستيك",9],["معدني",12]],{uses:["rest"],min:5})
+];
+const byId=id=>PRODUCTS.find(p=>p.id===id);
+const catOf=id=>CATS.find(c=>c.id===id);
+const fmt=n=>(Math.round(n*100)/100).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₪";
+const minP=p=>Math.min(...p.opts.map(o=>o[1]));
+const maxP=p=>Math.max(...p.opts.map(o=>o[1]));
+const priceLabel=p=>minP(p)===maxP(p)?fmt(minP(p)):"بدءًا من "+fmt(minP(p));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem("shaheed-cart")||"[]")}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem("shaheed-cart",JSON.stringify(cart))}catch(e){};badge()};
+const badge=()=>{document.getElementById("badge").textContent=cart.reduce((a,c)=>a+1,0)};
+const discount=(p,q)=>{let d=0;(p.tiers||[]).forEach(([t,pc])=>{if(q>=t)d=pc});return d};
+const lineTotal=c=>{const p=byId(c.pid);const u=p.opts[c.o][1];return u*c.q*(1-discount(p,c.q)/100)};
+
+function card(p){
+  const c=catOf(p.cat);
+  const sw=p.colors?`<div class="sw">${p.colors.map(x=>`<i style="background:${COL[x]}" title="${x}"></i>`).join("")}</div>`:"";
+  return `<article class="pc">
+   <a class="img" href="#${p.id}" aria-label="${esc(p.n)}">${ico(c.icon)}<span class="tag">${esc(c.n)}</span></a>
+   <div class="bd"><h3><a href="#${p.id}">${esc(p.n)}</a></h3>
+   <div class="meta">${esc(p.unit)} · حد أدنى <span class="num">${p.min}</span></div>${sw}
+   <div class="price num">${priceLabel(p)}</div>
+   <a class="btn btn-navy" href="#${p.id}">${p.opts.length>1||p.colors?"اختر المواصفات":"أضف للسلة"}</a></div></article>`;
+}
+
+function home(){
+  return `<div class="hero"><div class="wrap">
+   <div><h1>اطبع شعارك على كل شي بيوصل لزبونك</h1>
+   <p>كاسات، أكياس، علب، ليبلات، ملابس موحدة وكروت أعراس. اختار المنتج، ابعتلنا الشعار، ونطبع ونوصّلك لكل المناطق.</p>
+   <div class="row"><a class="btn btn-accent" href="#products">تسوّق المنتجات</a><a class="btn btn-ghost" href="https://wa.me/${WA}" target="_blank" rel="noopener">راسلنا واتساب</a></div></div>
+   <div class="sheet">${reg}<div class="stack"><div>${I.cups}</div><div>${I.bags}</div><div>${I.boxes}</div><div>${I.labels}</div><div>${I.uniforms}</div><div>${I.wedding}</div></div>
+   <div class="cmyk"><i style="background:#00a3e0"></i><i style="background:#e5007e"></i><i style="background:#ffd800"></i><i style="background:#111"></i></div></div>
+  </div></div>
+  <section class="wrap"><div class="sec-head"><h2>الأقسام</h2><a href="#products">كل المنتجات</a></div>
+   <div class="cats">${CATS.map(c=>`<a class="cat" href="#cat-${c.id}"><span class="ic">${ico(c.icon)}</span>${c.n}<small class="num">${PRODUCTS.filter(p=>p.cat===c.id).length} منتج</small></a>`).join("")}</div></section>
+  <section class="wrap"><div class="sec-head"><h2>حسب مجال شغلك</h2></div>
+   <div class="uses">${Object.entries(USES).map(([k,v])=>`<a class="use" href="#use-${k}"><span class="ic">${ico(USE_ICON(k))}</span><h3>${v}</h3><p>${{rest:"كاسات، أكياس دلفري، علب وجبات، مراييل",off:"فلايرات، دفاتر، مغلفات، بولو بالشعار",clin:"روشيتات، سكراب، بروشورات",evt:"كروت أعراس، علب حلويات، أكياس هدايا"}[k]}</p></a>`).join("")}</div></section>
+  <section class="wrap"><div class="sec-head"><h2>الأكثر طلباً للمطاعم</h2><a href="#use-rest">عرض الكل</a></div>
+   <div class="grid">${PRODUCTS.filter(p=>p.uses.includes("rest")).slice(0,8).map(card).join("")}</div></section>
+  <section class="wrap"><div class="sec-head"><h2>لماذا مطبعة الشهيد</h2></div>
+   <div class="why"><div><h3>توصيل لكل المناطق</h3><p>من الخليل لكل محافظات الضفة والقدس والداخل.</p></div>
+   <div><h3>خصم على الكميات</h3><p>كل ما زادت الكمية بينزل السعر، والخصم بيبين قبل الطلب.</p></div>
+   <div><h3>تأكيد قبل الطباعة</h3><p>بنبعتلك نموذج التصميم على واتساب وما بنطبع إلا بموافقتك.</p></div>
+   <div><h3>كل شي بمكان واحد</h3><p>تغليف، مطبوعات، ملابس وهدايا من مطبعة وحدة.</p></div></div></section>`;
+}
+
+let flt={sub:"",use:"",max:0,sort:"feat"};
+function listing(title,list,crumbs,subs){
+  const mx=Math.ceil(Math.max(...list.map(minP),1));
+  if(!flt.max||flt.max>mx)flt.max=mx;
+  let L=list.filter(p=>(!flt.sub||p.sub===flt.sub)&&(!flt.use||p.uses.includes(flt.use))&&minP(p)<=flt.max);
+  if(flt.sort==="low")L=[...L].sort((a,b)=>minP(a)-minP(b));
+  if(flt.sort==="high")L=[...L].sort((a,b)=>minP(b)-minP(a));
+  return `<section class="wrap"><div class="crumbs">${crumbs}</div>
+   <div class="sec-head"><h2>${title}</h2><span class="count num">${L.length} منتج</span></div>
+   <div class="msearch"><input type="text" id="q2" placeholder="ابحث في المنتجات…" aria-label="بحث" value="${esc(qv)}"></div>
+   ${subs&&subs.length?`<div class="subcats"><button class="chip" data-sub="" aria-pressed="${!flt.sub}">الكل</button>${subs.map(s=>`<button class="chip" data-sub="${s}" aria-pressed="${flt.sub===s}">${s}</button>`).join("")}</div>`:""}
+   <div class="layout"><aside class="filters">
+    <div><h4>الترتيب</h4><select id="sort" class="f"><option value="feat">مختارات</option><option value="low">الأقل سعراً</option><option value="high">الأعلى سعراً</option></select></div>
+    <div><h4>المجال</h4><select id="use" class="f"><option value="">كل المجالات</option>${Object.entries(USES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></div>
+    <div><h4>السعر حتى <span class="num" id="mxv">${fmt(flt.max)}</span></h4><input type="range" id="mx" min="1" max="${mx}" value="${flt.max}"></div>
+   </aside>
+   <div>${L.length?`<div class="grid">${L.map(card).join("")}</div>`:`<div class="empty">ما في منتجات بهالفلتر. جرّب ترفع حد السعر أو تختار مجال ثاني.</div>`}</div></div></section>`;
+}
+
+function product(p){
+  const c=catOf(p.cat);
+  return `<section class="wrap"><div class="crumbs"><a href="#home">الرئيسية</a> / <a href="#cat-${c.id}">${c.n}</a> / ${esc(p.n)}</div>
+  <div class="pd"><div class="gallery">${ico(c.icon,c.n)}</div>
+  <div><span class="tag" style="position:static">${c.n}</span>
+   <h1>${esc(p.n)}</h1><div class="price big num" id="unit"></div>
+   <ul class="desc"><li>السعر ${esc(p.unit)}، ولا يشمل التوصيل</li><li>الحد الأدنى للطلب: <span class="num">${p.min}</span></li><li>مدة التنفيذ: ${p.days||"3–5 أيام عمل"}</li>${p.note?`<li>${esc(p.note)}</li>`:""}<li>بنأكد معك التصميم على واتساب قبل الطباعة</li></ul>
+   <div class="opt"><h4>المقاس</h4><div class="opts" id="opts">${p.opts.map((o,i)=>`<button data-o="${i}" aria-pressed="${i===0}">${esc(o[0])}</button>`).join("")}</div></div>
+   ${p.colors?`<div class="opt"><h4>اللون</h4><div class="opts" id="cols">${p.colors.map((x,i)=>`<button class="colorbtn" data-c="${x}" aria-pressed="${i===0}"><span class="sw"><i style="background:${COL[x]}"></i></span>${x}</button>`).join("")}</div></div>`:""}
+   <div class="opt"><h4>الكمية</h4><div class="qty"><button id="dec" aria-label="أنقص">−</button><input id="qn" class="num" type="text" inputmode="numeric" value="${p.min}" aria-label="الكمية"><button id="inc" aria-label="زِد">+</button></div></div>
+   ${p.tiers?`<div class="opt"><h4>خصم الكميات</h4><table class="tiers num" id="tiers"><tr><th>الكمية</th><th>الخصم</th></tr><tr data-t="0"><td>أقل من ${p.tiers[0][0]}</td><td>—</td></tr>${p.tiers.map(([t,pc])=>`<tr data-t="${t}"><td>${t} فأكثر</td><td>${pc}%</td></tr>`).join("")}</table></div>`:""}
+   <div class="opt"><h4>شعارك (اختياري)</h4><div class="upload"><img id="lp" alt="" hidden><input type="file" id="logo" accept="image/*"><span id="ln" style="color:var(--muted)">بنطلب النسخة الأصلية على واتساب بعد الطلب</span></div></div>
+   <div class="opt"><h4>ملاحظات</h4><textarea id="nt" rows="2" placeholder="مثلاً: طباعة لون واحد، الشعار بالنص"></textarea></div>
+   <div class="total"><span>الإجمالي</span><b class="num" id="tot"></b></div>
+   <div class="row"><button class="btn btn-accent" id="add">أضف للسلة</button><a class="btn btn-ghost" style="color:var(--ink)" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent("استفسار عن: "+p.n)}">اسأل عن المنتج</a></div>
+  </div></div></section>
+  <section class="wrap"><div class="sec-head"><h2>منتجات ذات صلة</h2></div><div class="grid">${PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4).map(card).join("")}</div></section>`;
+}
+
+function bindProduct(p){
+  let o=0,col=p.colors?p.colors[0]:"",logo="";
+  const qn=document.getElementById("qn");
+  const q=()=>Math.max(1,parseInt(qn.value.replace(/\D/g,""))||p.min);
+  const upd=()=>{const u=p.opts[o][1],n=q(),d=discount(p,n);
+    document.getElementById("unit").textContent=fmt(u)+" "+p.unit;
+    document.getElementById("tot").textContent=fmt(u*n*(1-d/100))+(d?`  (خصم ${d}%)`:"")+`  ·  ${fmt(u)} × ${n}`;
+    document.querySelectorAll("#tiers tr[data-t]").forEach(r=>{const t=+r.dataset.t;const tier=p.tiers.filter(x=>n>=x[0]).pop();r.classList.toggle("on",tier?tier[0]===t:t===0)})};
+  document.querySelectorAll("#opts button").forEach(b=>b.onclick=()=>{o=+b.dataset.o;document.querySelectorAll("#opts button").forEach(x=>x.setAttribute("aria-pressed",x===b));upd()});
+  document.querySelectorAll("#cols button").forEach(b=>b.onclick=()=>{col=b.dataset.c;document.querySelectorAll("#cols button").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+  const step=p.min>=100?100:1;
+  document.getElementById("dec").onclick=()=>{qn.value=Math.max(p.min,q()-step);upd()};
+  document.getElementById("inc").onclick=()=>{qn.value=q()+step;upd()};
+  qn.oninput=upd;
+  document.getElementById("logo").onchange=e=>{const f=e.target.files[0];if(!f)return;logo=f.name;const r=new FileReader();r.onload=()=>{const im=document.getElementById("lp");im.src=r.result;im.hidden=false};r.readAsDataURL(f);document.getElementById("ln").textContent=f.name};
+  document.getElementById("add").onclick=()=>{const n=q();
+    if(n<p.min){qn.value=p.min;upd();toast("الحد الأدنى لهذا المنتج "+p.min);return}
+    cart.push({pid:p.id,o,col,q:n,note:document.getElementById("nt").value.trim(),logo});save();toast("انضاف للسلة")};
+  upd();
+}
+
+const AREAS=[["الخليل",10],["بيت لحم",15],["باقي محافظات الضفة",20],["القدس",30],["الداخل",50]];
+function cartView(){
+  if(!cart.length)return `<section class="wrap"><div class="sec-head"><h2>السلة</h2></div><div class="empty">السلة فاضية. <a href="#products">تصفّح المنتجات</a> واختار اللي بدك تطبعه.</div></section>`;
+  return `<section class="wrap"><div class="sec-head"><h2>السلة</h2><span class="count num">${cart.length} منتج</span></div>
+  <div class="cart"><div>${cart.map((c,i)=>{const p=byId(c.pid),d=discount(p,c.q);return `<div class="line"><div class="th">${ico(catOf(p.cat).icon)}</div>
+   <div style="min-width:0"><b>${esc(p.n)}</b><div class="meta" style="color:var(--muted);font-size:13px">${esc(p.opts[c.o][0])}${c.col?" · "+c.col:""} · <span class="num">${c.q}</span> × ${fmt(p.opts[c.o][1])}${d?` · خصم ${d}%`:""}${c.logo?" · شعار: "+esc(c.logo):""}</div><button class="x" data-rm="${i}">احذف</button></div>
+   <b class="num">${fmt(lineTotal(c))}</b></div>`}).join("")}</div>
+  <form class="box" id="co">
+   <h3 style="font-size:19px">تثبيت الطلب</h3>
+   <label for="nm">الاسم<input type="text" id="nm" required></label>
+   <label for="ph">رقم الجوال<input type="tel" id="ph" required placeholder="059…" dir="ltr" style="text-align:right"></label>
+   <label for="ar">منطقة التوصيل<select id="ar" class="f">${AREAS.map(([a,f],i)=>`<option value="${i}">${a} — ${fmt(f)}</option>`).join("")}</select></label>
+   <label for="pay">طريقة الدفع<select id="pay" class="f"><option>كاش عند الاستلام</option><option>تحويل بنكي / محفظة</option></select></label>
+   <div class="sum"><span>المنتجات</span><span class="num" id="s1"></span></div>
+   <div class="sum"><span>التوصيل</span><span class="num" id="s2"></span></div>
+   <div class="sum t"><span>المجموع</span><span class="num" id="s3"></span></div>
+   <button class="btn btn-accent" type="submit" style="justify-content:center">ثبّت الطلب</button>
+   <div id="done" hidden></div>
+  </form></div></section>`;
+}
+function bindCart(){
+  document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.rm,1);save();render()});
+  const f=document.getElementById("co");if(!f)return;
+  const sub=cart.reduce((a,c)=>a+lineTotal(c),0);
+  const upd=()=>{const fee=AREAS[+document.getElementById("ar").value][1];
+    document.getElementById("s1").textContent=fmt(sub);document.getElementById("s2").textContent=fmt(fee);document.getElementById("s3").textContent=fmt(sub+fee)};
+  document.getElementById("ar").onchange=upd;upd();
+  f.onsubmit=e=>{e.preventDefault();
+    const a=AREAS[+document.getElementById("ar").value];
+    const msg=["طلب جديد — مطبعة الشهيد","الاسم: "+document.getElementById("nm").value,"الجوال: "+document.getElementById("ph").value,"المنطقة: "+a[0],"الدفع: "+document.getElementById("pay").value,"",
+      ...cart.map((c,i)=>{const p=byId(c.pid);return `${i+1}) ${p.n} — ${p.opts[c.o][0]}${c.col?" / "+c.col:""} — ${c.q} — ${fmt(lineTotal(c))}${c.note?"\n   ملاحظة: "+c.note:""}`}),
+      "","المنتجات: "+fmt(sub),"التوصيل: "+fmt(a[1]),"المجموع: "+fmt(sub+a[1])].join("\n");
+    const d=document.getElementById("done");d.hidden=false;d.className="done";
+    d.innerHTML=`<b>طلبك جاهز للإرسال</b><span style="font-size:13.5px">ابعته على واتساب للرقم <span class="num" dir="ltr">00972597323130</span> وابعت معه الشعار، وبنرجعلك بنموذج التصميم للموافقة.</span><pre id="msg"></pre>
+      <div class="row"><a class="btn btn-navy" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">افتح واتساب</a><button type="button" class="btn btn-ghost" id="cp" style="color:var(--ink)">انسخ نص الطلب</button></div>`;
+    document.getElementById("msg").textContent=msg;
+    document.getElementById("cp").onclick=()=>{navigator.clipboard.writeText(msg).then(()=>toast("انسخ النص")).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("النص محدد، انسخه")})};
+  };
+}
+
+function about(){return `<section class="wrap prose"><h2 style="font-size:30px;margin-bottom:10px">مطبعة الشهيد</h2>
+ <p>مطبعة في الخليل عند دائرة السير، بنطبع لأصحاب المشاريع كل شي بيحمل اسمهم: كاسة القهوة، كيس الدلفري، علبة الحلويات، زي الموظفين وكرت العرس. بدل ما تلف على أكثر من مطبعة ومورّد، بتطلب كله من عنا.</p></section>
+ <section class="wrap"><div class="sec-head"><h2>لمين بنشتغل</h2></div><div class="uses">${Object.entries(USES).map(([k,v])=>`<a class="use" href="#use-${k}"><span class="ic">${ico(USE_ICON(k))}</span><h3>${v}</h3><p>تصفّح المنتجات المناسبة</p></a>`).join("")}</div></section>
+ <section class="wrap"><div class="sec-head"><h2>كيف بنشتغل معك</h2></div><div class="steps">
+ <div><h3 style="font-size:17px">اختار وثبّت</h3><p style="margin:4px 0 0;color:var(--muted)">اختار المنتج والمقاس والكمية من الموقع وثبّت الطلب.</p></div>
+ <div><h3 style="font-size:17px">ابعت الشعار ووافق</h3><p style="margin:4px 0 0;color:var(--muted)">بنستلم الشعار على واتساب وبنرجعلك بنموذج تصميم تعتمده.</p></div>
+ <div><h3 style="font-size:17px">نطبع ونوصّل</h3><p style="margin:4px 0 0;color:var(--muted)">خلال 3–5 أيام عمل لأغلب المنتجات، وتوصيل لكل المناطق.</p></div></div></section>`}
+
+function contact(){return `<section class="wrap"><div class="sec-head"><h2>اتصل بنا</h2></div><div class="contact">
+ <div class="info"><div><small>واتساب واتصال</small><b class="num" dir="ltr">00972597323130</b></div><div><small>الإيميل</small><b dir="ltr">alshaheedlib@gmail.com</b></div><div><small>العنوان</small><b>الخليل – دائرة السير</b></div>
+ <a class="btn btn-accent" target="_blank" rel="noopener" href="https://wa.me/${WA}" style="justify-content:center">راسلنا على واتساب</a></div>
+ <form class="box" id="cf"><h3 style="font-size:19px">ابعتلنا رسالة</h3>
+ <label for="cn">الاسم<input type="text" id="cn" required></label><label for="cph">الجوال<input type="tel" id="cph" required dir="ltr" style="text-align:right"></label>
+ <label for="cm">الرسالة<textarea id="cm" rows="4" required></textarea></label><button class="btn btn-navy" type="submit">جهّز الرسالة</button><div id="cfd" hidden></div></form></div></section>`}
+
+function terms(){return `<section class="wrap prose"><h2 style="font-size:28px;margin-bottom:10px">الشروط والأحكام</h2>
+ <p>الطلب بيتعتمد بعد ما نتفق معك على المنتج والكمية والتصميم والسعر ومدة التنفيذ.</p><p>الأسعار بالشيكل ولا تشمل التوصيل، ورسوم التوصيل بتبين بالسلة حسب المنطقة.</p>
+ <p>الألوان المطبوعة ممكن تختلف شوي عن الشاشة حسب الخامة.</p><p>المنتجات مطبوعة حسب الطلب فما بترجع، إلا إذا في خطأ من عنا؛ بلّغنا خلال 3 أيام من الاستلام وبنعيد الطباعة.</p></section>`}
+
+let qv="";
+function render(){
+  const h=(location.hash||"#home").slice(1);let html="",after=null,cur=h;
+  const isCat=h.startsWith("cat-"),isUse=h.startsWith("use-");
+  if(h==="home")html=home();
+  else if(h==="products"){html=listing(qv?`نتائج «${esc(qv)}»`:"كل المنتجات",PRODUCTS.filter(p=>!qv||p.n.includes(qv)||catOf(p.cat).n.includes(qv)),`<a href="#home">الرئيسية</a> / المنتجات`);after=bindList}
+  else if(isCat){const c=catOf(h.slice(4));if(c){cur="products";html=listing(c.n,PRODUCTS.filter(p=>p.cat===c.id),`<a href="#home">الرئيسية</a> / <a href="#products">المنتجات</a> / ${c.n}`,c.subs);after=bindList}}
+  else if(isUse){const k=h.slice(4);if(USES[k]){cur="products";flt.use=k;html=listing(USES[k],PRODUCTS,`<a href="#home">الرئيسية</a> / ${USES[k]}`);after=bindList}}
+  else if(byId(h)){cur="products";const p=byId(h);html=product(p);after=()=>bindProduct(p)}
+  else if(h==="cart"){html=cartView();after=bindCart}
+  else if(h==="about")html=about();
+  else if(h==="contact"){html=contact();after=bindContact}
+  else if(h==="terms")html=terms();
+  if(!html){html=home();cur="home"}
+  document.getElementById("app").innerHTML=html;
+  document.querySelectorAll("[data-r]").forEach(a=>{if(a.dataset.r===cur)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  if(after)after();
+}
+function bindList(){
+  const s=document.getElementById("sort"),u=document.getElementById("use"),m=document.getElementById("mx");
+  s.value=flt.sort;u.value=flt.use;
+  s.onchange=()=>{flt.sort=s.value;rerender()};u.onchange=()=>{flt.use=u.value;rerender()};
+  m.oninput=()=>{document.getElementById("mxv").textContent=fmt(+m.value)};m.onchange=()=>{flt.max=+m.value;rerender()};
+  document.querySelectorAll("[data-sub]").forEach(b=>b.onclick=()=>{flt.sub=b.dataset.sub;rerender()});
+  const q2=document.getElementById("q2");if(q2)q2.onchange=()=>{qv=q2.value.trim();if(location.hash!=="#products")location.hash="products";else rerender()};
+}
+function bindContact(){document.getElementById("cf").onsubmit=e=>{e.preventDefault();
+  const t=`${document.getElementById("cn").value} (${document.getElementById("cph").value}):\n${document.getElementById("cm").value}`;
+  const d=document.getElementById("cfd");d.hidden=false;d.className="done";
+  d.innerHTML=`<span>رسالتك جاهزة، ابعتها على واتساب:</span><a class="btn btn-accent" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(t)}">افتح واتساب</a>`}}
+function rerender(){const y=scrollY;render();scrollTo(0,y)}
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),1800)}
+document.getElementById("q").addEventListener("keydown",e=>{if(e.key==="Enter"){qv=e.target.value.trim();flt={sub:"",use:"",max:0,sort:"feat"};if(location.hash==="#products")render();else location.hash="products"}});
+addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(!h.startsWith("use-"))flt.use="";flt.sub="";flt.max=0;if(h!=="products")qv="";render();scrollTo(0,0)});
+badge();render();
+</script>
+
+</body>
+</html>
