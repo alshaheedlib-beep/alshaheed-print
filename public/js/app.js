@@ -136,16 +136,28 @@
   var co = $('#checkout-form');
   if (co) {
     var sel = $('[data-zone]', co), sub = parseFloat(co.getAttribute('data-sub')) || 0, free = parseFloat(co.getAttribute('data-free')) || 0;
-    var shipEl = $('#ship-val'), grandEl = $('#grand-val');
+    var shipEl = $('#ship-val'), grandEl = $('#grand-val'), dfee = parseFloat(co.getAttribute('data-design')) || 0, drow = $('#design-row');
     var upd = function () {
+      var d = $('input[name=art]:checked', co), wantD = !!(d && d.value === 'design');
+      co.classList.toggle('want-design', wantD);
+      if (drow) drow.hidden = !wantD;
+      var extra = wantD ? dfee : 0;
       var o = sel.options[sel.selectedIndex], fee = o && o.getAttribute('data-fee') !== null ? parseFloat(o.getAttribute('data-fee')) : null;
-      if (fee === null) { shipEl.textContent = '—'; grandEl.textContent = money(sub); return; }
+      if (fee === null) { shipEl.textContent = '—'; grandEl.textContent = money(sub + extra); return; }
       var s = (free > 0 && sub >= free) ? 0 : fee;
       shipEl.textContent = s === 0 ? SH.msg.free : money(s);
-      grandEl.textContent = money(sub + s);
+      grandEl.textContent = money(sub + s + extra);
     };
-    sel.addEventListener('change', upd); upd();
+    sel.addEventListener('change', upd);
+    Array.prototype.forEach.call(co.querySelectorAll('input[name=art]'), function (r) { r.addEventListener('change', upd); });
+    upd();
   }
+
+  /* ---------- confirm buttons ---------- */
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest && e.target.closest('[data-confirm]');
+    if (c && !window.confirm(c.getAttribute('data-confirm'))) e.preventDefault();
+  });
 
   /* ---------- contact → whatsapp ---------- */
   var wa = $('#wa-form');

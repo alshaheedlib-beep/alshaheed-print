@@ -351,3 +351,26 @@ textarea.input { resize: vertical; min-height: 90px; }
   .panel { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ---------- design service ---------- */
+.alert.ok { background: #e4f3e9; color: #226a3d; }
+.art-opts .tag { display: inline-block; background: var(--gold, #e8b21a); color: #1b1620; border-radius: 99px; padding: 0 8px; font-size: .8rem; margin-inline-start: 6px; }
+.art-opts small { display: block; margin-top: 4px; font-size: .78rem; }
+.brief-field, .design-only { display: none; }
+.want-design .brief-field { display: block; } .want-design .design-only { display: inline; } .want-design .own-only { display: none; }
+.design-page .page-head h1 .num { font-size: .9rem; font-weight: 400; }
+.proof-box { border: 2px solid var(--navy); } .proof-box form { margin: 12px 0 6px; }
+.proof-box .msg-img img { max-height: 420px; }
+.changes { margin-top: 8px; } .changes summary { list-style: none; } .changes summary::-webkit-details-marker { display: none; }
+.stack-sm { display: grid; gap: 10px; margin-top: 10px; }
+.msgs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.msg { max-width: 85%; align-self: flex-end; background: #f1f4f9; border-radius: 14px; padding: 10px 14px; }
+.msg.me { align-self: flex-start; background: #e7eefb; }
+.msg b { display: block; font-size: .8rem; color: var(--navy); } .msg p { margin: 4px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.msg time { display: block; font-size: .7rem; color: var(--muted); margin-top: 4px; }
+.msg.sys { align-self: center; background: none; color: var(--muted); font-size: .85rem; padding: 2px; text-align: center; }
+.msg.is-proof { border: 2px solid var(--gold, #e8b21a); }
+.msg-img img { display: block; max-width: 100%; max-height: 260px; border-radius: 10px; margin-top: 6px; background: #fff; }
+.msg-file { display: inline-block; margin-top: 6px; font-weight: 600; }
+.msg-form { display: grid; gap: 10px; } .msg-form input[type=file] { flex: 1; min-width: 0; font-size: .85rem; }
+.btn-lg { padding: 14px 28px; font-size: 1.05rem; } [hidden] { display: none !important; }

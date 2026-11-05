@@ -11,6 +11,7 @@ import * as cartLib from './lib/cart.mjs';
 import * as views from './lib/views.mjs';
 import { handleAdmin } from './lib/admin.mjs';
 import { notifyNewOrder, notifyNewQuote } from './lib/notify.mjs';
+import * as design from './lib/design.mjs';
 
 const PORT = int(process.env.PORT, 3000);
 const HOST = process.env.HOST || '0.0.0.0';
@@ -103,13 +104,19 @@ async function handle(req, res) {
     if (pathname === '/favicon.ico') return redirect(res, '/img/favicon.png', 301);
     if (pathname === '/robots.txt') {
       if (isTempHost(req)) return send(res, 200, 'User-agent: *\nDisallow: /\n', { 'Content-Type': 'text/plain; charset=utf-8' });
-      return send(res, 200, `User-agent: *\nDisallow: /admin\nDisallow: /*/cart\nDisallow: /*/checkout\nDisallow: /*/track\nDisallow: /*/search\nSitemap: ${absoluteSite(req)}/sitemap.xml\n`, { 'Content-Type': 'text/plain; charset=utf-8' });
+      return send(res, 200, `User-agent: *\nDisallow: /admin\nDisallow: /designer\nDisallow: /*/design/\nDisallow: /*/cart\nDisallow: /*/checkout\nDisallow: /*/track\nDisallow: /*/search\nSitemap: ${absoluteSite(req)}/sitemap.xml\n`, { 'Content-Type': 'text/plain; charset=utf-8' });
     }
     if (pathname === '/sitemap.xml') return sitemap(req, res);
   }
 
   if (pathname === '/admin' || pathname.startsWith('/admin/')) {
     const handled = await handleAdmin(req, res, url, pathname.slice('/admin'.length) || '/');
+    if (handled || res.headersSent) return;
+    return send(res, 404, 'Not found');
+  }
+
+  if (pathname === '/designer' || pathname.startsWith('/designer/')) {
+    const handled = await design.handleDesigner(req, res, url, pathname.slice('/designer'.length) || '/');
     if (handled || res.headersSent) return;
     return send(res, 404, 'Not found');
   }
@@ -158,6 +165,10 @@ async function handle(req, res) {
       return order ? page(views.successPage(ctx, order)) : notFound();
     }
     if (sub === '/track') return page(views.trackPage(ctx));
+    if ((mm = /^\/design\/([^/]+)$/.exec(sub))) {
+      const o = design.customerOrder(mm[1], str(query.k, 64));
+      return o ? page(design.customerPage(ctx, o, { flash: design.okMessage(ctx, query.ok) })) : notFound();
+    }
     if (sub === '/wishlist') return page(views.wishlistPage(ctx));
     if (sub === '/wishlist/items') {
       const ids = String(query.ids || '').split(',').map((x) => int(x)).filter((x) => x > 0).slice(0, 60);
@@ -172,7 +183,7 @@ async function handle(req, res) {
   }
 
   /* POST */
-  const big = sub === '/checkout' || sub === '/quote';
+  const big = sub === '/checkout' || sub === '/quote' || sub.startsWith('/design/');
   const { fields, files } = await parseBody(req, big ? UPLOAD_LIMIT : 64 * 1024);
 
   if (sub === '/cart/add') {
@@ -195,6 +206,13 @@ async function handle(req, res) {
   if (sub === '/checkout') return checkoutPost();
   if (sub === '/quote') return quotePost();
   if (sub === '/track') return trackPost();
+  if ((mm = /^\/design\/([^/]+)$/.exec(sub))) {
+    const o = design.customerOrder(mm[1], str(fields.k, 64));
+    if (!o) return notFound();
+    const r = design.customerPost(req, o, fields, files);
+    if (r.error) return page(design.customerPage(ctx, design.customerOrder(mm[1], o.token), { error: r.error }), 422);
+    return go(design.designLink(o, lang) + '&ok=' + encodeURIComponent(str(fields.act, 10)) + (fields.act === 'msg' ? '#end' : ''));
+  }
   return notFound();
 
   /* ---- POST handlers ---- */
@@ -205,6 +223,7 @@ async function handle(req, res) {
     const values = {
       name: str(fields.name, 100), phone: str(fields.phone, 30), email: str(fields.email, 120), business: str(fields.business, 120), zone: str(fields.zone, 10),
       city: str(fields.city, 100), address: str(fields.address, 300), notes: str(fields.notes, 1000), payment: str(fields.payment, 10),
+      art: str(fields.art, 10), brief: str(fields.brief, 3000),
     };
     if (!rateLimit('co:' + clientIp(req), 12, 15 * 60 * 1000)) return page(views.checkoutPage(ctx, cart, { values, banner: t('co.err.rate') }), 429);
     const errors = {};
@@ -216,6 +235,9 @@ async function handle(req, res) {
     if (values.address.length < 3) errors.address = t('co.err.address');
     if (!(values.payment === 'cod' && S.cod_enabled === '1') && !(values.payment === 'card' && S.card_enabled === '1')) errors.payment = t('co.err.payment');
     if (values.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) values.email = '';
+    const dq = design.designEnabled(S) ? design.designQuote(cart.items) : { fee: 0 };
+    const wantsDesign = values.art === 'design' && dq.fee > 0;
+    if (wantsDesign && values.brief.length < 5) errors.brief = t('co.err.brief');
     let logo = null;
     if (!Object.keys(errors).length) {
       try { logo = saveArtwork(files.logo); } catch (e) { errors.logo = `${t('co.err.file')}: ${e.message}`; }
@@ -224,7 +246,8 @@ async function handle(req, res) {
 
     const shipping = cartLib.shippingFor(cart.subtotal, zone, Number(S.free_shipping_min) || 0);
     try {
-      const o = cartLib.placeOrder({ items: cart.items, form: values, zone, shipping, subtotal: cart.subtotal, lang, logo });
+      const o = cartLib.placeOrder({ items: cart.items, form: values, zone, shipping, subtotal: cart.subtotal, lang, logo,
+        design: wantsDesign ? { fee: dq.fee, brief: values.brief } : null, token: design.newToken() });
       const order = cartLib.orderByNumber(o.number);
       try { notifyNewOrder(order, cartLib.orderItems(order.id)); } catch (e) { console.error('notify failed', e.message); }
       return go(ctx.L('/order/success?n=' + encodeURIComponent(o.number)), [cartLib.clearCartCookie()]);
@@ -277,7 +300,7 @@ async function handle(req, res) {
     if (!order || norm(order.phone) !== norm(values.phone) || norm(values.phone).length < 8) {
       return page(views.trackPage(ctx, { values, notFound: true }), 404);
     }
-    return page(views.trackPage(ctx, { order, items: cartLib.orderItems(order.id), values }));
+    return page(views.trackPage(ctx, { order, items: cartLib.orderItems(order.id), values, designUrl: order.design ? design.designLink(order, lang) : '' }));
   }
 }
 

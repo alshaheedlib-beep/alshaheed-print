@@ -63,3 +63,16 @@ details > summary { list-style: none; cursor: pointer; display: inline-block; ma
 @media (max-width: 760px) { .span2 { grid-column: auto; } }
 .preview { background: #f3f5f9; } td.thumb img { background: #f3f5f9; } td { border-bottom-color: #edf0f5; }
 .sticky-actions { background: rgba(243, 245, 249, .96); }
+
+/* design service */
+.who { display: block; color: #b7c3dc; font-size: .85rem; padding: 10px 12px; }
+.msgs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; max-height: 640px; overflow-y: auto; }
+.msg { max-width: 85%; align-self: flex-end; background: #f1f4f9; border-radius: 12px; padding: 8px 12px; }
+.msg.me { align-self: flex-start; background: #e4ecfa; }
+.msg b { display: block; font-size: .8rem; color: var(--plum); } .msg p { margin: 4px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.msg time { display: block; font-size: .7rem; color: var(--muted); }
+.msg.sys { align-self: center; background: none; color: var(--muted); font-size: .85rem; text-align: center; }
+.msg.is-proof { border: 2px solid var(--gold); }
+.msg-img img { display: block; max-width: 100%; max-height: 240px; border-radius: 8px; margin-top: 6px; background: #fff; }
+.msg-file { display: inline-block; margin-top: 6px; font-weight: 600; }
+.msg.from-customer { background: #fff6e0; } .msg.from-admin { background: #e4f3e9; }
