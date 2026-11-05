@@ -12,6 +12,7 @@ import * as views from './lib/views.mjs';
 import { handleAdmin } from './lib/admin.mjs';
 import { notifyNewOrder, notifyNewQuote } from './lib/notify.mjs';
 import * as design from './lib/design.mjs';
+import { siteUrl } from './lib/seo.mjs';
 
 const PORT = int(process.env.PORT, 3000);
 const HOST = process.env.HOST || '0.0.0.0';
@@ -54,8 +55,16 @@ const wantsJson = (req) => (req.headers.accept || '').includes('application/json
 const str = (v, max = 300) => String(Array.isArray(v) ? v[0] : v ?? '').trim().slice(0, max);
 const absoluteSite = (req) => {
   const proto = String(req.headers['x-forwarded-proto'] || 'http').split(',')[0].trim();
-  return (process.env.SITE_URL || `${proto}://${req.headers.host || 'localhost'}`).replace(/\/$/, '');
+  return siteUrl(getSettings(), `${proto}://${req.headers.host || 'localhost'}`);
 };
+/* One address for Google: alshaheed.ps:8081 and www.alshaheed.ps → https://alshaheed.ps (same path). */
+function canonicalHostRedirect(req) {
+  const target = siteUrl(getSettings(), '');
+  if (!/^https:\/\/[^/]+$/.test(target)) return null;
+  const want = target.slice(8).toLowerCase(), host = String(req.headers.host || '').toLowerCase();
+  if (host === want || !(host === 'www.' + want || host.startsWith(want + ':') || host.startsWith('www.' + want + ':'))) return null;
+  return target + req.url;
+}
 const phoneOk = (p) => { const d = String(p).replace(/\D/g, ''); return d.length >= 9 && d.length <= 15; };
 
 function detectLang(req) {
@@ -81,6 +90,8 @@ function baseCtx(req, lang, extra = {}) {
 async function handle(req, res) {
   const url = new URL(req.url, 'http://x');
   if (isTempHost(req)) res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  const hostFix = canonicalHostRedirect(req);
+  if (hostFix && (req.method === 'GET' || req.method === 'HEAD')) return redirect(res, hostFix, 301);
   let pathname = url.pathname;
   try { pathname = decodeURIComponent(pathname); } catch { return send(res, 400, 'Bad request'); }
   if (pathname.length > 1 && pathname.endsWith('/')) return redirect(res, pathname.slice(0, -1) + url.search, 301);

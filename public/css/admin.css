@@ -79,3 +79,8 @@ details > summary { list-style: none; cursor: pointer; display: inline-block; ma
 .font-roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px 22px; }
 .font-role label { margin-bottom: 8px; }
 .font-pv { background: #f3f5f9; border-radius: 10px; padding: 12px 14px; font-size: 1.25rem; line-height: 1.6; min-height: 56px; }
+.serp { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; max-width: 640px; font-family: Arial, sans-serif; }
+.serp-url { color: #202124; font-size: .85rem; direction: ltr; text-align: right; } .serp-title { color: #1a0dab; font-size: 1.2rem; margin: 4px 0; line-height: 1.35; } .serp-desc { color: #4d5156; font-size: .9rem; line-height: 1.55; }
+.seo-check { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; } .seo-check li { padding: 8px 12px; border-radius: 8px; background: #f3f5f9; }
+.seo-check li.ok { background: #e4f3e9; } .seo-check li.ok b { color: var(--green); } .seo-check li.todo b { color: var(--amber); } .seo-check small { display: block; margin-top: 2px; }
+.seo-how { display: grid; gap: 10px; padding-inline-start: 20px; } .cnt { display: block; font-weight: 400; color: var(--muted); }

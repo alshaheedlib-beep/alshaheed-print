@@ -53,3 +53,12 @@
     });
   });
 })();
+
+/* SEO: character counters + Google preview */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function (el) {
+    var cnt = el.parentNode.querySelector('.cnt'), pv = el.getAttribute('data-pv') && document.getElementById(el.getAttribute('data-pv'));
+    var upd = function () { if (cnt) cnt.textContent = el.value.length + ' حرف'; if (pv) pv.textContent = el.value; };
+    el.addEventListener('input', upd); upd();
+  });
+})();
