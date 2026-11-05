@@ -41,3 +41,15 @@
     var r = new FileReader(); r.onload = function () { prev.src = r.result; }; r.readAsDataURL(f);
   });
 })();
+
+/* font picker live preview */
+(function () {
+  var sels = document.querySelectorAll('[data-font-preview]');
+  Array.prototype.forEach.call(sels, function (s) {
+    s.addEventListener('change', function () {
+      var pv = document.getElementById(s.getAttribute('data-font-preview')), v = s.value;
+      if (!pv) return;
+      pv.style.fontFamily = !v ? 'inherit' : v.indexOf('custom:') === 0 ? "'ShFont-" + v.slice(7) + "'" : "'" + v + "'";
+    });
+  });
+})();
