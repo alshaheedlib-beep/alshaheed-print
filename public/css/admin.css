@@ -84,3 +84,4 @@ details > summary { list-style: none; cursor: pointer; display: inline-block; ma
 .seo-check { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; } .seo-check li { padding: 8px 12px; border-radius: 8px; background: #f3f5f9; }
 .seo-check li.ok { background: #e4f3e9; } .seo-check li.ok b { color: var(--green); } .seo-check li.todo b { color: var(--amber); } .seo-check small { display: block; margin-top: 2px; }
 .seo-how { display: grid; gap: 10px; padding-inline-start: 20px; } .cnt { display: block; font-weight: 400; color: var(--muted); }
+.pos-in { width: 64px !important; margin: 0 !important; padding: 6px 8px !important; text-align: center; }
