@@ -92,8 +92,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero h1 { font-size: clamp(1.9rem, 4.4vw, 3.1rem); }
 .hero p { color: #c9d4e8; font-size: 1.08rem; max-width: 52ch; margin: 14px 0 24px; }
 .hero-art { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; border: 1px dashed rgba(255, 255, 255, .28); border-radius: 6px; }
-.hero-tile { background: #fff; border-radius: 16px; aspect-ratio: 1; display: grid; place-items: center; padding: 10px; }
-.hero-tile img { width: 100%; height: 100%; object-fit: contain; }
+.hero-tile { background: #fff; border-radius: 16px; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 10px 12px; color: var(--navy); text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.hero-tile img { width: 100%; aspect-ratio: 1.25; object-fit: contain; }
+.hero-tile b { font-family: var(--display); font-size: 1rem; text-align: center; line-height: 1.3; }
+.hero-tile:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .25); }
 .crop { position: absolute; width: 26px; height: 26px; border: 0 solid var(--accent); }
 .crop.c1 { top: -13px; inset-inline-start: -13px; border-width: 0 0 2px 2px; } [dir=rtl] .crop.c1 { border-width: 0 2px 2px 0; }
 .crop.c2 { bottom: -13px; inset-inline-end: -13px; border-width: 2px 2px 0 0; } [dir=rtl] .crop.c2 { border-width: 2px 0 0 2px; }
@@ -318,6 +320,7 @@ textarea.input { resize: vertical; min-height: 90px; }
   .hero-inner { grid-template-columns: 1fr; padding-block: 30px 36px; gap: 26px; }
   .hero-art { grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 10px; }
   .hero-tile { border-radius: 10px; padding: 4px; }
+  .hero-art { display: none; } /* phones: the sections row under the header already shows the 4 sections */
   .listing { grid-template-columns: 1fr; }
   .filters { position: fixed; inset: 0 auto 0 0; width: min(88vw, 340px); z-index: 80; border-radius: 0; overflow-y: auto; transform: translateX(-100%); transition: transform .25s; top: 0; padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
   [dir=rtl] .filters { inset: 0 0 0 auto; transform: translateX(100%); }

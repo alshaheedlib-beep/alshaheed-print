@@ -69,8 +69,7 @@ const phoneOk = (p) => { const d = String(p).replace(/\D/g, ''); return d.length
 
 function detectLang(req) {
   const c = parseCookies(req).sh_lang;
-  if (LANGS.includes(c)) return c;
-  return String(req.headers['accept-language'] || '').toLowerCase().startsWith('en') ? 'en' : 'ar';
+  return LANGS.includes(c) ? c : 'ar'; // Arabic by default; English only when the visitor picked it
 }
 // Temporary links (bare IP / sslip.io / nip.io) or NOINDEX=1 must not be indexed by search engines.
 const isTempHost = (req) => {
