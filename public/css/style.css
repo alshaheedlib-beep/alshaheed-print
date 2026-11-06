@@ -400,3 +400,19 @@ textarea.input { resize: vertical; min-height: 90px; }
 @media (max-width: 760px) { .map-box iframe { height: 300px; } }
 @media (max-width: 1180px) and (min-width: 901px) { .nav a { padding: 9px 9px; font-size: .9rem; } }
 .hero h1 .eyebrow { display: block; font-family: var(--body); font-size: clamp(.9rem, 1.6vw, 1.05rem); font-weight: 600; color: var(--accent); margin-bottom: 10px; letter-spacing: 0; }
+
+/* ---------- phone comfort ---------- */
+.buy-sticky { display: none; }
+@media (max-width: 900px) {
+  .announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .8rem; padding: 5px 12px; } .announce .more { display: none; }
+  /* scrolling down slides the logo + search rows up out of view (transform only — the page never shifts); the sections row stays */
+  .top { transition: transform .22s ease; will-change: transform; }
+  .top.compact { transform: translateY(calc(-1 * var(--hide, 0px))); }
+  .buy-sticky { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: fixed; left: 0; right: 0; z-index: 45;
+    bottom: calc(58px + env(safe-area-inset-bottom, 0px)); background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(15, 34, 66, .08);
+    padding: 10px 16px; transform: translateY(140%); visibility: hidden; transition: transform .2s ease, visibility .2s; }
+  .buy-sticky.show { transform: none; visibility: visible; }
+  .buy-sticky small { display: block; color: var(--muted); font-size: .75rem; } .buy-sticky b { font-size: 1.15rem; color: var(--navy); }
+  .buy-sticky .btn { flex: 1; max-width: 230px; }
+  html[lang=en] .nav a.nav-dept { font-size: .7rem; gap: 3px; } html[lang=en] .nav .nav-ic { width: 18px; height: 18px; }
+}

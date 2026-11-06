@@ -104,6 +104,11 @@ async function handle(req, res) {
     if (pathname === '/healthz') return sendJson(res, { ok: true });
     if (/^\/(css|js|img)\//.test(pathname)) {
       const f = safeJoin(PUBLIC_DIR, pathname.slice(1));
+      // same picture, ~6× lighter: browsers that take WebP get the .webp twin of a .png when one exists
+      if (f && f.endsWith('.png') && /image\/webp/.test(req.headers.accept || '')) {
+        res.setHeader('Vary', 'Accept');
+        if (serveFile(req, res, f.slice(0, -4) + '.webp', { cache: 'public, max-age=86400' })) return;
+      }
       if (f && serveFile(req, res, f, { cache: 'public, max-age=86400' })) return;
       return send(res, 404, 'Not found');
     }

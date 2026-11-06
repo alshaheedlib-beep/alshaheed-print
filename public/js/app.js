@@ -153,6 +153,31 @@
     upd();
   }
 
+  /* ---------- phones: sticky "add to cart" bar on product pages, compact header while scrolling down ---------- */
+  var addBtn = $('#add-btn'), bar = $('#buy-sticky');
+  if (addBtn && bar) {
+    var totalEl = $('#total'), stickyTotal = $('[data-sticky-total]', bar), tabbar = $('.tabbar');
+    var place = function () { if (tabbar && tabbar.offsetHeight) bar.style.bottom = tabbar.offsetHeight + 'px'; };
+    var check = function () {
+      var off = addBtn.getBoundingClientRect().bottom < 0; // the real button scrolled away above
+      if (off === bar.classList.contains('show')) return;
+      bar.classList.toggle('show', off); bar.setAttribute('aria-hidden', off ? 'false' : 'true');
+      if (off && totalEl && stickyTotal) stickyTotal.textContent = totalEl.textContent;
+    };
+    place(); check();
+    window.addEventListener('resize', place); window.addEventListener('scroll', check, { passive: true });
+    $('[data-sticky-add]', bar).addEventListener('click', function () { addBtn.click(); });
+  }
+  var top = $('.top'), lastY = window.scrollY, topNav = top && $('.nav', top);
+  var setHide = function () { if (top && topNav) top.style.setProperty('--hide', (top.offsetHeight - topNav.offsetHeight) + 'px'); };
+  setHide(); window.addEventListener('resize', setHide);
+  if (top) window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (Math.abs(y - lastY) < 8) return;
+    top.classList.toggle('compact', y > lastY && y > 260);
+    lastY = y;
+  }, { passive: true });
+
   /* ---------- confirm buttons ---------- */
   document.addEventListener('click', function (e) {
     var c = e.target.closest && e.target.closest('[data-confirm]');
