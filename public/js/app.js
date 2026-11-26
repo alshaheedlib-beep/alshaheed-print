@@ -178,6 +178,9 @@
     lastY = y;
   }, { passive: true });
 
+  /* ---------- footer link groups fold on phones ---------- */
+  if (window.matchMedia('(max-width: 900px)').matches) $$('.foot .fgroup').forEach(function (d) { d.removeAttribute('open'); });
+
   /* ---------- confirm buttons ---------- */
   document.addEventListener('click', function (e) {
     var c = e.target.closest && e.target.closest('[data-confirm]');

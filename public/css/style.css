@@ -433,3 +433,123 @@ textarea.input { resize: vertical; min-height: 90px; }
 .achip { display: inline-flex; gap: 6px; align-items: center; background: #fff6dc; border: 1px solid #f0d58a; color: var(--navy); border-radius: 99px; padding: 4px 12px; font-size: .84rem; text-decoration: none; }
 .achip.clear { background: none; border-color: transparent; text-decoration: underline; color: var(--muted); }
 .fcount { display: inline-grid; place-items: center; min-width: 20px; height: 20px; border-radius: 99px; background: var(--accent); color: var(--accent-ink); font-size: .75rem; margin-inline-start: 4px; }
+
+/* =====================================================================
+   Calm pass (Nov 2026): white + navy, gold only for the one main action,
+   fewer borders/shadows, shorter home page, lighter product cards.
+   ===================================================================== */
+:root { --paper: #fff; --soft: #f4f6fa; --line: #e5e9f0; --muted: #6b7489; }
+body { background: #fff; }
+.announce { background: var(--navy-2); color: #dfe6f3; font-weight: 400; }
+.cart-btn { background: rgba(255, 255, 255, .1); color: #fff; }
+.cart-btn:hover { background: rgba(255, 255, 255, .18); }
+.sec { padding-block: 36px; }
+.sec-head { align-items: center; margin-bottom: 16px; }
+.sec-head h2 { font-size: 1.45rem; }
+.sec-head .more { font-size: .9rem; color: var(--navy-3); text-decoration: none; font-weight: 500; }
+.band-soft { background: var(--soft); }
+
+/* hero: one short line */
+.hero-inner { padding-block: 36px 42px; }
+.hero p { font-size: 1rem; margin: 10px 0 22px; }
+.hero h1 .eyebrow { color: #f0c74d; font-weight: 500; }
+.hero-art { border: 0; padding: 0; gap: 12px; } .hero-art .crop { display: none; }
+.hero-tile { border-radius: 14px; box-shadow: none; } .hero-tile b { font-weight: 600; }
+
+/* categories: small icons, names only */
+.cats { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 18px 8px; }
+.cat .ic { width: 84px; height: 84px; background: var(--soft); box-shadow: none; }
+.cat:hover .ic { box-shadow: none; background: #e9eef7; }
+.cat .nm { font-weight: 500; font-size: .88rem; color: var(--ink); }
+.cat-more { display: none; } .cat-more .ic { color: var(--navy-3); }
+.cat-more svg.ic { width: 26px; height: 26px; background: none; border-radius: 0; stroke: currentColor; }
+
+/* product cards: picture, name, price — the whole card is the link */
+.grid { gap: 14px; }
+.card { border-color: var(--line); border-radius: 14px; box-shadow: none; }
+.card:hover { border-color: #cfd6e4; box-shadow: 0 4px 16px rgba(20, 40, 75, .06); }
+.card-img { background: var(--soft); border-bottom: 0; padding: 14px; }
+.card-body { padding: 12px 14px 14px; gap: 2px; }
+.card-title { font-weight: 500; font-size: .98rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-title a::after { content: ''; position: absolute; inset: 0; z-index: 1; } /* stretched link */
+.card .wish { z-index: 2; background: #fff; box-shadow: none; }
+.card .badge { z-index: 2; }
+.card-meta { font-size: .8rem; }
+.card .price { padding-top: 8px; }
+.price .now { font-size: 1.08rem; font-weight: 700; }
+.price.quote { color: var(--navy); }
+
+/* how it works: three quiet steps + one line about «صمّملي» */
+.steps { gap: 12px; }
+.steps li { border: 0; background: var(--soft); padding: 16px 18px; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; }
+.steps li::before { grid-row: span 2; margin: 0; width: 30px; height: 30px; font-size: .9rem; }
+.steps b { font-size: 1rem; } .steps span { font-size: .88rem; }
+.steps-note { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: .9rem; margin: 14px 0 0; }
+.steps-note .ic { width: 18px; height: 18px; color: var(--navy-3); }
+
+/* why us: four icons, a few words each */
+.why { list-style: none; margin: 0; padding: 20px 0; border-block: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.why li { display: flex; align-items: center; gap: 10px; font-size: .92rem; color: var(--ink); }
+.why li .ic { width: 22px; height: 22px; color: var(--navy-3); flex: none; }
+.why li b { font-weight: 500; }
+
+/* wholesale: one light row instead of a big navy block */
+.promo { background: var(--soft); color: var(--ink); border-radius: 16px; padding: 18px 22px; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; text-decoration: none; }
+.promo:hover { background: #e9eef7; }
+.promo img { width: 84px; padding: 8px; border-radius: 14px; background: #fff; }
+.promo h2 { font-size: 1.15rem; margin: 0 0 2px; color: var(--navy); } .promo p { color: var(--muted); margin: 0; font-size: .9rem; }
+.promo .go { color: var(--navy-3); font-weight: 600; font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .why { grid-template-columns: 1fr 1fr; row-gap: 14px; }
+  .promo { grid-template-columns: auto minmax(0, 1fr); } .promo .go { display: none; } .promo img { width: 64px; grid-row: auto; justify-self: auto; }
+}
+@media (max-width: 560px) {
+  .sec { padding-block: 26px; } .sec-head h2 { font-size: 1.2rem; }
+  .hero-inner { padding-block: 22px 26px; gap: 20px; } .hero h1 { font-size: 1.7rem; } .hero p { font-size: .92rem; margin: 8px 0 16px; }
+  .cats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 6px; }
+  .cats-short .cat:nth-child(n+12):not(.cat-more) { display: none; } .cats-short .cat-more { display: flex; } /* phones: 3 rows, then «عرض الكل» */
+  .cat .ic { width: 64px; height: 64px; } .cat .nm { font-size: .74rem; line-height: 1.3; }
+  .card-body { padding: 10px 10px 12px; } .card-title { font-size: .88rem; } .price .now { font-size: 1rem; }
+  .steps { grid-template-columns: 1fr; gap: 8px; } .steps li { padding: 12px 14px; }
+  .why li { font-size: .82rem; gap: 8px; }
+}
+
+/* ---- section pages: light header instead of a navy block ---- */
+.dept-hero { background: var(--soft); color: var(--ink); }
+.dept-hero h1 { color: var(--navy); } .dept-hero p { color: var(--muted); }
+.dept-hero img { background: #fff; width: 150px; }
+.dept-hero .pill { background: #fff; color: var(--navy-3); }
+.partner-band { box-shadow: none; }
+
+/* ---- product page: fewer boxes ---- */
+.pdp-media { border: 0; background: var(--soft); }
+.pdp-info .card-cat, .pdp-info > a.cat-link { color: var(--muted); }
+.facts { background: none; border: 0; border-block: 1px solid var(--line); border-radius: 0; padding: 12px 0; color: var(--muted); }
+.facts b { color: var(--ink); }
+.design-cta { background: var(--soft); border: 0; border-radius: 12px; padding: 12px 14px; }
+.design-cta .ic { width: 22px; height: 22px; color: var(--navy-3); }
+.design-cta b { font-size: .92rem; } .design-cta p { font-size: .84rem; color: var(--muted); }
+.ask-wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: #168a46; font-weight: 500; text-decoration: none; font-size: .92rem; }
+.ask-wa .ic { width: 18px; height: 18px; } .ask-wa:hover { text-decoration: underline; }
+
+/* ---- cart / checkout / forms ---- */
+.panel { border-color: var(--line); box-shadow: none; }
+.summary .panel { background: var(--soft); border: 0; }
+
+/* ---- footer: navy anchor, compact; link groups fold on phones ---- */
+.fgroup summary { list-style: none; cursor: default; } .fgroup summary::-webkit-details-marker { display: none; }
+.foot-top { padding-block: 32px 22px; }
+@media (min-width: 901px) { .fgroup summary { pointer-events: none; } }
+@media (max-width: 900px) {
+  .foot-top { grid-template-columns: 1fr; gap: 0; padding-block: 22px 8px; }
+  .foot-brand { margin-bottom: 10px; } .foot-brand p { display: none; }
+  .fgroup { border-top: 1px solid rgba(255, 255, 255, .1); }
+  .fgroup summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+  .fgroup summary h4 { margin: 0; font-size: .98rem; }
+  .fgroup summary::after { content: '+'; font-size: 1.2rem; color: #9fb0cf; } .fgroup[open] summary::after { content: '–'; }
+  .fgroup ul { padding-bottom: 12px; }
+  .fcontact { border-top: 1px solid rgba(255, 255, 255, .1); padding-top: 14px; }
+  .fcontact h4 { display: none; }
+}
+@media (max-width: 560px) { .dept-hero img { width: 84px; } }
