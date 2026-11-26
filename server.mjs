@@ -179,6 +179,7 @@ async function handle(req, res) {
       const order = cartLib.orderByNumber(str(query.n, 40));
       return order ? page(views.successPage(ctx, order)) : notFound();
     }
+    if (sub === '/categories') return page(views.categoriesPage(ctx));
     if (sub === '/track') return page(views.trackPage(ctx));
     if ((mm = /^\/design\/([^/]+)$/.exec(sub))) {
       const o = design.customerOrder(mm[1], str(query.k, 64));

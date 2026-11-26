@@ -157,7 +157,7 @@
   var addBtn = $('#add-btn'), bar = $('#buy-sticky');
   if (addBtn && bar) {
     var totalEl = $('#total'), stickyTotal = $('[data-sticky-total]', bar), tabbar = $('.tabbar');
-    var place = function () { if (tabbar && tabbar.offsetHeight) bar.style.bottom = tabbar.offsetHeight + 'px'; };
+    var place = function () { if (tabbar && tabbar.offsetHeight) bar.style.bottom = (tabbar.offsetHeight + 14) + 'px'; };
     var check = function () {
       var off = addBtn.getBoundingClientRect().bottom < 0; // the real button scrolled away above
       if (off === bar.classList.contains('show')) return;
