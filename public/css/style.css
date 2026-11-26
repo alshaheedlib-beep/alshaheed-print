@@ -662,3 +662,87 @@ h1, h2, h3 { font-weight: 600; } .hero h1 { font-weight: 700; }
 .nav .mega li a { color: var(--ink); padding: 5px 0; font-size: .9rem; font-weight: 400; }
 .nav .mega li a:hover { color: var(--navy-3); }
 .mega-cols { grid-template-columns: 2fr 1fr 1fr 1fr; } .mega-cols > div:first-child ul { columns: 2; column-gap: 24px; }
+
+/* =====================================================================
+   Masterpiece colour method in navy (Nov 2026): one deep navy brand colour,
+   a faint navy tint for the page, tinted rounded panels, white cards,
+   a white header under a dark utility bar, navy pills for actions.
+   Fonts: Cairo (+ Heebo for Latin), like masterpiece.ps.
+   ===================================================================== */
+:root {
+  --navy: #1b2c4e; --navy-2: #24395f; --navy-3: #3b5784; --ink: #1c2337; --muted: #646d82;
+  --paper: #f5f7fb; --card: #fff; --soft: #e9eef6; --line: #e0e6f0; --accent: #1b2c4e; --accent-ink: #fff;
+  --tint: #edf1f8; --tint-2: #dfe6f2;
+  --display: 'Cairo', 'Heebo', Tahoma, sans-serif;
+  --body: 'Cairo', 'Heebo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  --shadow: 0 6px 22px rgba(27, 44, 78, .07);
+}
+body { background: var(--paper); }
+h1, h2, h3 { font-weight: 700; }
+:focus-visible { outline-color: var(--navy-3); }
+
+/* utility bar + white header */
+body::before { background: var(--navy); }
+.announce { background: var(--navy); color: #dce4f2; font-weight: 500; }
+.top { background: #fff; color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+.top .brand { color: var(--navy); } .brand small { color: var(--muted); }
+.search { background: var(--tint); border: 1.5px solid transparent; border-radius: 99px; }
+.search:focus-within { border-color: var(--navy-3); background: #fff; }
+.search input { color: var(--ink); } .search input::placeholder { color: #8892a7; }
+.search button { color: var(--navy); }
+.lang-btn { color: var(--navy); } .lang-btn:hover { background: var(--tint); }
+.menu-btn, .top .icon-btn { color: var(--navy); }
+.icon-btn .count { background: var(--navy); color: #fff; }
+.cart-btn { background: var(--navy); color: #fff; border-radius: 99px; } .cart-btn:hover { background: var(--navy-2); }
+.cart-btn .count { background: #fff; color: var(--navy); box-shadow: 0 0 0 1px var(--line); }
+.nav { border-top: 1px solid var(--line); background: #fff; }
+.nav a { color: var(--ink); font-weight: 500; }
+.nav a:hover { color: var(--navy); background: var(--tint); }
+.nav a[aria-current] { color: var(--navy); box-shadow: inset 0 -3px 0 var(--navy); font-weight: 700; }
+.nav .nav-quote { color: var(--navy); font-weight: 700; }
+.mega summary { background: var(--navy); color: #fff; }
+.mega[open] summary { background: var(--navy-2); color: #fff; }
+.mega-dept img, .mchip img, .tile-img { background: var(--tint); }
+
+/* hero: deep navy banner, rounded like the section banners */
+.hero { background: linear-gradient(135deg, var(--navy), var(--navy-2)); }
+.crop { border-color: #8fa6cc; }
+
+/* buttons: navy pills */
+.btn { border-radius: 99px; }
+.btn-accent, .btn-navy { background: var(--navy); color: #fff; } .btn-accent:hover, .btn-navy:hover { background: var(--navy-2); }
+.hero .btn-accent, .pbanner .btn-accent, .promo .btn-accent { background: #fff; color: var(--navy); } .hero .btn-accent:hover { background: var(--tint); }
+.btn-outline { border-color: var(--tint-2); color: var(--navy); } .btn-outline:hover { border-color: var(--navy); }
+.more, .sec-head .more { color: var(--navy); font-weight: 600; }
+
+/* panels, tiles, cards */
+.panel-sec { background: var(--tint); border-radius: 2rem; }
+.pbadge { background: var(--navy); border-radius: 99px; padding: 2px 10px; }
+.tile:hover .tile-img { background: var(--tint-2); }
+.card { background: #fff; border-color: var(--line); border-radius: 16px; }
+.card:hover { border-color: var(--tint-2); box-shadow: var(--shadow); }
+.card-img { border-bottom-color: var(--tint); }
+.price { color: var(--navy); font-weight: 700; }
+.qadd button { border-radius: 99px; background: var(--navy); } .qadd button:hover { background: var(--navy-3); }
+.row-scroll { scrollbar-color: #c3cee0 transparent; }
+.band-soft { background: var(--tint); }
+.why div { border-top-color: var(--navy); }
+.steps li::before { background: var(--navy); }
+.dquick a { background: var(--tint); }
+.mchip { background: #fff; }
+.pill { background: var(--tint); color: var(--navy); }
+.sorts a[aria-current] { background: var(--navy); border-color: var(--navy); }
+
+/* footer: the deep navy anchor */
+.foot { background: var(--navy); }
+
+@media (max-width: 900px) {
+  .nav a.nav-dept { background: var(--tint); color: var(--ink); }
+  .nav a.nav-dept[aria-current] { background: var(--navy); color: #fff; }
+  .nav .nav-ic { background: #fff; }
+  .tabbar { background: rgba(255, 255, 255, .97); border-color: var(--line); }
+  .tabbar a { color: var(--muted); }
+  .tabbar a[aria-current] { background: var(--tint); color: var(--navy); }
+  .panel-sec { border-radius: 1.4rem; }
+}
+.hero h1 .eyebrow { color: #b9c9e6; }
